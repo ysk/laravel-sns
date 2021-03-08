@@ -20,12 +20,16 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+
+    protected $maxAttempts = 5;
+    protected $decayMinutes = 1;
+
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
