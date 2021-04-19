@@ -7,5 +7,4 @@
   <div class="container">
     @include('articles.card')
   </div>
-  
 @endsection
