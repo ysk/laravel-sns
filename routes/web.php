@@ -25,7 +25,7 @@ Route::prefix('register')->name('register.')->group(function () {
     Route::get('/{provider}', 'Auth\RegisterController@showProviderUserRegistrationForm')->name('{provider}');
 });
 
-//一覧ページ
+//記事一覧ページ
 Route::get('/', 'ArticleController@index')->name('articles.index');
 
 //CURD
@@ -38,3 +38,5 @@ Route::prefix('articles')->name('articles.')->group(function(){
     Route::delete('/{article}/like', 'ArticleController@unlike')->name('unlike')->middleware('auth');
 });
 
+//ハッシュタグ一覧ページ
+Route::get('/tags/{name}', 'TagController@show')->name('tags.show');
