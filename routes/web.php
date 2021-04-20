@@ -40,3 +40,8 @@ Route::prefix('articles')->name('articles.')->group(function(){
 
 //ハッシュタグ一覧ページ
 Route::get('/tags/{name}', 'TagController@show')->name('tags.show');
+
+//ユーザー
+Route::prefix('users')->name('users.')->group(function () {
+    Route::get('/{name}', 'UserController@show')->name('show');
+});
