@@ -19,7 +19,8 @@ class ArticleController extends Controller
     //index
     public function index()
     {
-        $articles = Article::all()->sortByDesc('created_at')->load(['user', 'likes', 'tags']); 
+        $articles = Article::all()->sortByDesc('created_at')
+        ->load(['user', 'likes', 'tags']); 
         return view('articles.index', ['articles'=>$articles]);
     }
 
@@ -86,7 +87,6 @@ class ArticleController extends Controller
             $tag = Tag::firstOrCreate(['name' => $tagName]);
             $article->tags()->attach($tag);
         });
-
         return redirect()->route('articles.index');
     }
 
